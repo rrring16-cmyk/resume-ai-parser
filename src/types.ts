@@ -5,7 +5,7 @@ export interface ParsedResume {
   status: 'pending' | 'processing' | 'success' | 'error';
   errorMsg?: string;
   data?: ResumeData;
-  fileLink?: string; // URL to view the file
+  fileLink?: string; 
 }
 
 export interface ResumeData {
@@ -18,10 +18,4 @@ export interface ResumeData {
   lastCompanyName: string;
   lastJobTitle: string;
   householdCity: string;
-}
-
-export enum ProcessingStatus {
-  IDLE = 'IDLE',
-  PROCESSING = 'PROCESSING',
-  COMPLETED = 'COMPLETED',
 }

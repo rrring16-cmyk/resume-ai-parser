@@ -24,21 +24,8 @@ export const downloadCSV = (content: string, fileName: string) => {
 };
 
 export const generateCSVContent = (resumes: any[]): string => {
-  const headers = [
-    "上傳日期",
-    "姓名",
-    "性別",
-    "出生日期",
-    "手機1",
-    "工作經驗",
-    "特殊身份",
-    "工作經驗一公司名稱",
-    "工作經驗一職務名稱",
-    "戶籍縣市",
-    "檔案連結"
-  ];
-
-  const rows = resumes.map(r => {
+  const headers = ["上傳日期", "姓名", "性別", "出生日期", "手機1", "工作經驗", "特殊身份", "工作經驗一公司名稱", "工作經驗一職務名稱", "戶籍縣市", "檔案連結"];
+  const rows = resumes.map((r: any) => {
     if (!r.data) return [];
     return [
       r.uploadDate,
@@ -52,8 +39,7 @@ export const generateCSVContent = (resumes: any[]): string => {
       r.data.lastJobTitle || "",
       r.data.householdCity || "",
       r.fileLink || ""
-    ].map(cell => `"${String(cell).replace(/"/g, '""')}"`);
+    ].map((cell: any) => `"${String(cell).replace(/"/g, '""')}"`);
   });
-
-  return [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+  return [headers.join(","), ...rows.map((r: any) => r.join(","))].join("\n");
 };

@@ -1,11 +1,6 @@
 import React from 'react';
 import { FileText, CloudUpload, Settings } from 'lucide-react';
-
-interface HeaderProps {
-  onSettingsClick: () => void;
-  isConfigured: boolean;
-}
-
+interface HeaderProps { onSettingsClick: () => void; isConfigured: boolean; }
 export const Header: React.FC<HeaderProps> = ({ onSettingsClick, isConfigured }) => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
@@ -24,11 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ onSettingsClick, isConfigured })
             <CloudUpload className="w-4 h-4 mr-2" />
             {isConfigured ? '已連線至雲端' : '僅本機模式'}
           </div>
-          <button 
-            onClick={onSettingsClick}
-            className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
-            title="設定雲端上傳連結"
-          >
+          <button onClick={onSettingsClick} className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors" title="設定雲端上傳連結">
             <Settings className="w-6 h-6" />
           </button>
         </div>
